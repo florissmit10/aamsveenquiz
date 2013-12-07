@@ -1,5 +1,34 @@
 {>"layouts/master" /}
 
 {<body}
-    <h1>{@pre type="content" key="index.greeting"/}</h1>
+<h1>Aamsveen quiz</h1>
+<p class="lead">Just went on a trip with Eddy Westinga to Aamsveen? Test your knowledge and play the quiz now!</p>
+<p><button class="btn btn-lg btn-success" data-toggle="modal" data-target="#quizModal" >Start!</a></button>
+
+<div class="modal" id="quizModal">
+	<div class="modal-dialog">
+		<div class="modal-content"> 
+			<div class="modal-body">
+				<form id="quizForm" class="form-horizontal" role="form" action="/quiz">
+		 			<div class="form-group">
+		   		 	<label for="name">Name:</label>
+		    		<input type="text" class="form-control" id="name" placeholder="Name">
+			  		</div>
+					<div class="form-group">
+					    <label for="difficulty">Difficulty:</label>
+					    <select id="difficulty" class="form-control" style="width:80px;">
+				       		 <option>Easy</option>
+				       		 <option>Hard</option>
+				      	</select>
+					</div>
+    				<input type="hidden" name="_csrf" value="{_csrf}">
+				</form>
+			</div>
+			<div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-lg btn-success" onClick="$('#quizForm').submit()">Go!</button>
+			</div>
+		</div>
+   	</div>
+</div>
 {/body}
