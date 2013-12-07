@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose'),
 Schema = mongoose.Schema,
-MapPhotoQuestion = require('./../models/mapPhotoQuestion.js');
+Question = require('./../models/questionModel.js');
 
 var quizModel = function () {
 
@@ -14,9 +14,8 @@ var quizModel = function () {
 
 	quizSchema.methods.populateState = function (){
 		var self=this;
-		console.log(self);
-		MapPhotoQuestion.find(function(err,docs){
-			if(err) { throw err;} 
+		Question.find(function(err,docs){
+			if(err) { console.log(err);} 
 			while(docs.length>0){
 				var docindex = Math.floor(Math.random()*docs.length);
 				self.state.push({id: docs[docindex]._id, correct: null});

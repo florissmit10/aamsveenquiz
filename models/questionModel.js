@@ -3,16 +3,17 @@
 var mongoose = require('mongoose');
 
 var mapPhotoModel = function(){
-	var mapPhotoQuestionSchema = mongoose.Schema({
+	var questionSchema = mongoose.Schema({
 		type: String,
 		photo: [String],
+		dummyPhoto: [String],
 		geometry: {
 			x: Number,
 			y: Number
 		}
 	});
 
-	return mongoose.model('MapPhotoQuestion', mapPhotoQuestionSchema);
+	return mongoose.model('Question', questionSchema);
 };
 
 module.exports = new mapPhotoModel();

@@ -5,7 +5,7 @@ module.exports = function (server) {
 
     server.get('/quiz', function (req, res) {
         if(req.session.quiz!==undefined){
-			QuizModel.findById(req.session.quiz,function(err,q){
+			Quiz.findById(req.session.quiz,function(err,qz){
 				if(err) { console.log(err);}
 				console.log(q);
 			});
