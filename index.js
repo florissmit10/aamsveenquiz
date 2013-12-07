@@ -1,7 +1,7 @@
 'use strict';
-var db = require('./lib/database');
-
-var kraken = require('kraken-js'),
+var db = require('./lib/database'),
+express = require('express'),
+kraken = require('kraken-js'),
     app = {};
 
 
@@ -21,6 +21,7 @@ app.requestStart = function requestStart(server) {
 
 app.requestBeforeRoute = function requestBeforeRoute(server) {
     // Fired before routing occurs
+    server.use(express.methodOverride());
 };
 
 
