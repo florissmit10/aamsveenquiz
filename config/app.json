@@ -1,4 +1,9 @@
 {
+ "databaseConfig": {
+        "host": "localhost",
+        "database": "aamsveenquiz"
+    }
+
 // Uncomment and change as needed (Be careful not to leave trailing commas!)
 
 // "port": 8000,
