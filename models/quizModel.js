@@ -2,14 +2,16 @@
 
 var mongoose = require('mongoose'),
 Schema = mongoose.Schema,
-Question = require('./../models/questionModel.js');
+Question = require('./../models/questionModel.js'),
+questionSchema = mongoose.model('Question').schema;
 
 var quizModel = function () {
 
 	var quizSchema = Schema({
 		uname: String,
 		difficulty: Boolean,
-		state: [{id: Schema.Types.ObjectId, correct:Boolean}]
+		questions: [questionSchema],
+		answers: [Boolean]
 	});
 
 	quizSchema.methods.populateState = function (){
@@ -18,13 +20,12 @@ var quizModel = function () {
 			if(err) { console.log(err);} 
 			while(docs.length>0){
 				var docindex = Math.floor(Math.random()*docs.length);
-				self.state.push({id: docs[docindex]._id, correct: null});
-
+				self.questions.push(docs[docindex]);
+				self.answers.push(null);
 				docs.splice(docindex,1);
 			}
 			self.save(function(err,qs){
-				if(err){ throw err;}
-				console.log(qs);
+				if(err){ console.log(err);}
 			});
 		});
 

@@ -6,7 +6,7 @@ var mapPhotoModel = function(){
 	var questionSchema = mongoose.Schema({
 		type: String,
 		photo: [String],
-		dummyPhoto: [String],
+		dummyPhoto: {type:[String],default: []},
 		geometry: {
 			x: Number,
 			y: Number

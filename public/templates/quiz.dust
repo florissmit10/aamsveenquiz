@@ -1,5 +1,53 @@
 {>"layouts/master" /}
 
 {<body}
-    <h1>{@pre type="content" key="index.greeting"/}</h1>
+	{?quiz}
+		<p> Your score is {.quiz.score}/{.quiz.max}</p>
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                <th>Question:</th><th> Correct?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {?quiz.result}
+                    {#quiz.result}
+                        <tr>
+                            <td>{@math key="{$idx}" method="add" operand="1"/}</td>
+                            <td>
+                                {#.}
+                                    Correct
+                                {:else}
+                                    Incorrect
+                                {/.}
+                            </td>
+                        </tr>
+                    {/quiz.result}
+                {/quiz.result}
+            </tbody>
+        </table>
+
+    {:else}
+    	{?next_question}
+    		<div id="awnser_field" class="row">
+                <p> What foto was taken at this location?</p>
+                <div id="map" class="col-sm-12"></div>
+        		 {#next_question.photos}
+        		 	<div class="col-sm-6">
+        		 	<a href="/quiz/?answer={.}" class="thumbnail"><img src ="/img/IMG_{.}.JPG" ></img></a>
+        		 	</div>
+        		 {/next_question.photos}
+    		</div>
+
+
+    		<script>
+    		var xpos = {next_question.mCoords.x};
+    		var ypos = {next_question.mCoords.y};
+            var zoomDisabled = {next_question.difficulty};
+    		 </script>
+    	{:else}
+    	<p> raaaaaar </p>
+    	{/next_question}
+    {/quiz}
+
 {/body}
