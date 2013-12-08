@@ -1,5 +1,5 @@
 'use strict';
-var db = require('./lib/database'),
+var db = require(__dirname + '/lib/database'),
 express = require('express'),
 kraken = require('kraken-js'),
     app = {};

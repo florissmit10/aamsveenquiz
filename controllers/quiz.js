@@ -1,6 +1,6 @@
 'use strict';
-var Quiz = require('./../models/quizModel.js');
-var Question = require('./../models/questionModel.js');
+var Quiz = require(__dirname + '/../models/quizModel.js');
+var Question = require(__dirname + '/../models/questionModel.js');
 var _ = require('underscore');
 
 module.exports = function (server) {

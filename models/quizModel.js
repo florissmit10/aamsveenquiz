@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose'),
 Schema = mongoose.Schema,
-Question = require('./../models/questionModel.js'),
+Question = require(__dirname + '/../models/questionModel.js'),
 questionSchema = mongoose.model('Question').schema;
 
 var quizModel = function () {
