@@ -9,7 +9,7 @@ var minZ,
 			maxZ=14;
 
 		}else{
-			minZ=0,
+			minZ=14,
 			maxZ=19
 		}
 
