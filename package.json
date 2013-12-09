@@ -9,7 +9,10 @@
     "start": "node index.js"
   },
   "engines": {
-    "node": ">=0.10.22"
+    "node": "0.10.22"
+  },"repository" :
+  { "type" : "git"
+  , "url" : "http://github.com/florissmit10/aamsveenquiz.git"
   },
   "dependencies": {
     "kraken-js": "git://github.com/lmarkus/kraken-js.git",
